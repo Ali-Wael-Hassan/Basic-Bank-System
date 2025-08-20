@@ -1,5 +1,5 @@
 #pragma once
-#include "D:/Basic-Bank-System/interface/IPerson.h"
+#include "IPerson.h"
 
 class Person : public IPerson{
     protected:
