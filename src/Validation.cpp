@@ -1,4 +1,4 @@
-#include "D:/Basic-Bank-System/header/Validation.h"
+#include "Validation.h"
 
 bool Validation::isValidName(const std::string& s){
     for(auto& c : s){

@@ -1,5 +1,5 @@
-#include "D:/Basic-Bank-System/header/Person.h"
-#include "D:/Basic-Bank-System/header/Validation.h"
+#include "Person.h"
+#include "Validation.h"
 #include <stdexcept>
 
 Person::Person(std::string fst, std::string lst, int id, int age){
@@ -14,7 +14,7 @@ bool Person::setFirstName(const std::string& fst){
     this->fst = fst;
     return true;
 }
-
+    
 bool Person::setLastName(const std::string& lst){
     if(!Validation::isValidName(lst)) return false;
     this->lst = lst;
