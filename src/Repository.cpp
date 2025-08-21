@@ -89,7 +89,7 @@ void Repository::load(const std::string& File, std::map<std::string, IPerson*>& 
                 std::getline(ss, temp, '|'); salary = std::stod(temp);
                 std::getline(ss, temp); bonus = std::stod(temp);
 
-                IPerson* person = new Employee(firstName, lastName, id, age, salary, bonus);
+                IPerson* person = new Employee(firstName, lastName, id, age, user, pass, salary, bonus);
                 DB[key] = person;
             }
         }

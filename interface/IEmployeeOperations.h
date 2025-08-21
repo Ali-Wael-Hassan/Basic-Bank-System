@@ -9,4 +9,4 @@ class IEmployeeOperations{
         virtual double getSalary() const = 0;
         virtual double getBonus() const = 0;
 };
-IEmployeeOperations::~IEmployeeOperations() {}
+inline IEmployeeOperations::~IEmployeeOperations() {}
