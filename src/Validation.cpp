@@ -1,13 +1,23 @@
 #include "Validation.h"
 
 bool Validation::isValidName(const std::string& s){
+    if(s.empty()) return false;
     for(auto& c : s){
-        if(!isalpha(c)) return 0;
+        if(!isalpha(c)) return false;
     }
-    return 1;
+    return true;
 }
 
 bool Validation::isValidNum(int n){
-    if(n <= 0) return 0;
-    return 1;
+    return n > 0;
+}
+
+bool Validation::isValidBalance(double amount){
+    if(amount < 0) return false;
+    return true;
+}
+
+bool Validation::isValidBalance(double balance, double amount){
+    if(!isValidBalance(amount) || amount > balance) return false;
+    return true;
 }
