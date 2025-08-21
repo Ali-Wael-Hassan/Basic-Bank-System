@@ -6,4 +6,4 @@ class IBankOperations{
         virtual bool deposit(double amount) = 0;
         virtual bool withdraw(double amount) = 0;
 };
-IBankOperations::~IBankOperations() {}
+inline IBankOperations::~IBankOperations() {}

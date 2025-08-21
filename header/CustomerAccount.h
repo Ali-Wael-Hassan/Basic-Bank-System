@@ -15,8 +15,8 @@ class CustomerAccount : public IBankOperations, public IAccountManagment, public
         bool changeUser(const std::string& newUser) override;
         // getters
         double getBalance();
-        std::string getPassword() override;
-        std::string getUser() override;
+        std::string getPassword() const override;
+        std::string getUser() const override;
         //Display
         void Display() const override;
 };

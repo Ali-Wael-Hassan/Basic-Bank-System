@@ -21,7 +21,7 @@ bool Employee::changePassword(const std::string &newPassword){
 }
 
 bool Employee::changeUser(const std::string &newUser){
-    if(!Validation::isValidName(newUser)) return false;
+    if(newUser.empty()) return false;
     this->user = newUser;
     return true;
 }
@@ -44,11 +44,11 @@ double Employee::getBonus() const{
     return this->bonus;
 }
 
-std::string Employee::getPassword(){
+std::string Employee::getPassword() const{
     return  this->password;
 }
 
-std::string Employee::getUser(){
+std::string Employee::getUser() const{
     return this->user;
 }
 // Display

@@ -6,7 +6,7 @@ class IAccountManagment{
         virtual ~IAccountManagment() = 0;
         virtual bool changePassword(const std::string& newPassword) = 0;
         virtual bool changeUser(const std::string& newUser) = 0;
-        virtual std::string getPassword() = 0;
-        virtual std::string getUser() = 0;
+        virtual std::string getPassword() const = 0;
+        virtual std::string getUser() const = 0;
 };
-IAccountManagment::~IAccountManagment(){}
+inline IAccountManagment::~IAccountManagment(){}

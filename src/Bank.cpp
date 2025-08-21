@@ -22,17 +22,6 @@ Bank::~Bank(){
         delete person;
     }
 }
-template <class T, typename... Args>
-inline bool Bank::createAccount(const std::string &username, Args &&...args){
-    if(DB.find(username) != DB.end()){
-        std::cout << "Username Already Exist!\n";
-        return false;
-    }
-
-    DB[username] = new T(std::forward<Args>(args)...);
-    std::cout << "Sign up successful!\n";
-    return true;
-}
 // Base Menue Operations
 bool Bank::signUp(const std::string &username, const std::string &password,const std::string &firstName, const std::string &lastName,int id, int age, double balance){
     return createAccount<CustomerAccount>(username, firstName, lastName, id, age, username, password, balance);
@@ -43,7 +32,7 @@ bool Bank::signUp(const std::string &username, const std::string &password,const
 }
 
 bool Bank::signIn(const std::string &username, const std::string &password){
-    auto& it = DB.find(username);
+    auto it = DB.find(username);
     if(it == DB.end()){
         std::cout << "Wrong Username.\n";
         return false;
@@ -85,7 +74,7 @@ bool Bank::signOut(){
     return true;
 }
 // Customer Exclusive Operation
-bool Bank::CustomerDeposit(int amount){
+bool Bank::CustomerDeposit(double amount){
     if(!logged){
         std::cout << "You aren't logged into account.\n";
         return false;
@@ -103,7 +92,7 @@ bool Bank::CustomerDeposit(int amount){
     return true;
 }
 
-bool Bank::CustomerWithdraw(int amount){
+bool Bank::CustomerWithdraw(double amount){
     if(!logged){
         std::cout << "You aren't logged into account.\n";
         return false;
@@ -197,6 +186,11 @@ bool Bank::ChangeUser(const std::string &user, const std::string &Password, cons
         std::cout << "Invalid New User!\n";
         return false;
     }
+    logged = nullptr;
+    IPerson* ptr = it->second;
+    DB.erase(it);
+    DB[newUser] = ptr;
+    logged = ptr;
     std::cout << "Changed User successful!\n";
     return true;
 }

@@ -11,13 +11,13 @@ CustomerAccount::CustomerAccount(std::string fst, std::string lst, int id, int a
 
 bool CustomerAccount::deposit(double amount)
 {
-    if(!Validation::isValidBalance(amount)) return false;
+    if(!Validation::isValidBalance(amount) || amount == 0) return false;
     this->balance += amount;
     return true;
 }
 
 bool CustomerAccount::withdraw(double amount){
-    if(!Validation::isValidBalance(this->balance, amount)) return false;
+    if(!Validation::isValidBalance(this->balance, amount) || amount == 0) return false;
     this->balance -= amount;
     return true;
 }
@@ -29,7 +29,7 @@ bool CustomerAccount::changePassword(const std::string &newPassword){
 }
 
 bool CustomerAccount::changeUser(const std::string &newUser){
-    if(!Validation::isValidName(newUser)) return false;
+    if(newUser.empty()) return false;
     this->user = newUser;
     return true;
 }
@@ -37,10 +37,10 @@ bool CustomerAccount::changeUser(const std::string &newUser){
 double CustomerAccount::getBalance(){
     return this->balance;
 }
-std::string CustomerAccount::getPassword(){
+std::string CustomerAccount::getPassword() const{
     return this->password;
 }
-std::string CustomerAccount::getUser(){
+std::string CustomerAccount::getUser() const{
     return this->user;
 }
 // Display
