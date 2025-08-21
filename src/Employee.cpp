@@ -3,13 +3,27 @@
 #include "stdexcept"
 #include <iostream>
 
-Employee::Employee(std::string fst, std::string lst, int id, int age, double salary, double bonus) : Person(fst,lst,id,age){
+Employee::Employee(std::string fst, std::string lst, int id, int age, std::string user, std::string password,  double salary, double bonus) : Person(fst,lst,id,age){
+    if(!changeUser(user)) throw std::invalid_argument("Invalid User");
+    if(!changePassword(password)) throw std::invalid_argument("Invalid Password");
     if(!setSalary(salary)) throw std::invalid_argument("Invalid Salary");
     assignBonus(bonus);
 }
 
 double Employee::calculateSalary() const{
     return this->bonus+this->salary;
+}
+
+bool Employee::changePassword(const std::string &newPassword){
+    if(newPassword.empty()) return false;
+    this->password = newPassword;
+    return true;
+}
+
+bool Employee::changeUser(const std::string &newUser){
+    if(!Validation::isValidName(newUser)) return false;
+    this->user = newUser;
+    return true;
 }
 // setters
 void Employee::assignBonus(double amount){
@@ -28,6 +42,14 @@ double Employee::getSalary() const{
 
 double Employee::getBonus() const{
     return this->bonus;
+}
+
+std::string Employee::getPassword(){
+    return  this->password;
+}
+
+std::string Employee::getUser(){
+    return this->user;
 }
 // Display
 void Employee::Display() const{
