@@ -12,10 +12,12 @@ class Person : public IPerson{
         bool setFirstName(const std::string& fst) override;
         bool setLastName(const std::string& lst) override;
         bool setId(int id) override;
-        bool setAge(int id) override;
+        bool setAge(int age) override;
         // getters
         std::string getFirstName() const override;
         std::string getLastName() const override;
         int getId() const override;
         int getAge() const override;
+        // Display
+        void Display() const override;
 };

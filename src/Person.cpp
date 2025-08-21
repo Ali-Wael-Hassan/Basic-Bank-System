@@ -1,6 +1,8 @@
 #include "Person.h"
 #include "Validation.h"
 #include <stdexcept>
+#include <iostream>
+#include "FullNameFormatter.h"
 
 Person::Person(std::string fst, std::string lst, int id, int age){
     if(!setFirstName(fst)) throw std::invalid_argument("Invalid First Name");
@@ -47,4 +49,10 @@ int Person::getId() const{
 
 int Person::getAge() const{
     return this->age;
+}
+//Display
+void Person::Display() const
+{
+    std::cout << "Full Name: " << FullNameFormatter::fullName(this->fst,this->lst) << '\n';
+    std::cout << "ID: " << this->id << ", Age: " << this->age << '\n';
 }
