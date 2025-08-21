@@ -13,5 +13,10 @@ class CustomerAccount : public IBankOperations, public IAccountManagment, public
         bool withdraw(double amount) override;
         bool changePassword(const std::string& newPassword) override;
         bool changeUser(const std::string& newUser) override;
+        // getters
+        double getBalance();
+        std::string getPassword() override;
+        std::string getUser() override;
+        //Display
         void Display() const override;
 };

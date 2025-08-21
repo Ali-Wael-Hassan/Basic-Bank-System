@@ -33,7 +33,17 @@ bool CustomerAccount::changeUser(const std::string &newUser){
     this->user = newUser;
     return true;
 }
-
+// getters
+double CustomerAccount::getBalance(){
+    return this->balance;
+}
+std::string CustomerAccount::getPassword(){
+    return this->password;
+}
+std::string CustomerAccount::getUser(){
+    return this->user;
+}
+// Display
 void CustomerAccount::Display() const{
     std::cout << "User: " << this->user << ", Balance: " << this->balance << '\n';
     Person::Display();
