@@ -202,3 +202,7 @@ void Bank::Display(){
     }
     Screen::print(*logged);
 }
+// getter
+IPerson* Bank::getLog(){
+    return this->logged;
+}

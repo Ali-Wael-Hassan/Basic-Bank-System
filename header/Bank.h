@@ -21,14 +21,14 @@ class Bank{
             }
             try{
                 DB[username] = new T(std::forward<Args>(args)...);
-                std::cout << "Sign up successful!\n";
+                std::cout << "Registered successful!\n";
             }
             catch (const std::exception& e) {
-                std::cout << "Sign up failed: " << e.what() << "\n";
+                std::cout << "Registered failed: " << e.what() << "\n";
                 return false;
             } 
             catch (...) {
-                std::cout << "Sign up failed: unknown error\n";
+                std::cout << "Registered failed: unknown error\n";
                 return false;
             }
             return true;
@@ -52,4 +52,6 @@ class Bank{
         bool ChangeUser(const std::string& user, const std::string& Password, const std::string& newUser);
         // Display
         void Display();
+        // getter
+        IPerson* getLog();
 };

@@ -11,7 +11,7 @@ CustomerAccount::CustomerAccount(std::string fst, std::string lst, int id, int a
 
 bool CustomerAccount::deposit(double amount)
 {
-    if(!Validation::isValidBalance(amount) || amount == 0) return false;
+    if(!Validation::isValidBalance(amount)) return false;
     this->balance += amount;
     return true;
 }

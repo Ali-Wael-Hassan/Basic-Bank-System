@@ -1,1 +1,2 @@
 # Basic-Bank-System
+# Compile "g++ -I interface -I header src/Person.cpp src/FullNameFormatter.cpp src/Validation.cpp src/CustomerAccount.cpp src/Employee.cpp src/Repository.cpp src/Bank.cpp src/Screen.cpp src/InterActive.cpp src/main.cpp -o Bank"
