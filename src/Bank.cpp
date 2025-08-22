@@ -7,7 +7,7 @@ Bank::Bank()
     try {
         Repository::load(s, this->DB);
     } catch (const std::exception& e) {
-        std::cerr << "Warning: Could not load data: " << e.what() << "\n";
+        std::cout << "Warning: Could not load data: " << e.what() << "\n";
     }
 }
 
